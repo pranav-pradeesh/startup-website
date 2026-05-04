@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-gold: #C8A84B;
+  --color-gold-dim: rgba(200, 168, 75, 0.1);
+  --color-gold-glow: rgba(200, 168, 75, 0.2);
+  --color-bg: #06060F;
+  --color-bg-alt: #0C0C1C;
+  --color-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-stone-200 font-sans antialiased selection:bg-gold/30 selection:text-white;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif italic tracking-tight;
+  }
+}
+
+@layer components {
+  .mono-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.2em] text-stone-500;
+  }
+
+  .glass-panel {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 bg-gold text-bg font-mono text-xs font-bold rounded-sm 
+           hover:bg-gold/90 transition-all flex items-center gap-2
+           shadow-[0_8px_32px_rgba(200,168,75,0.2)];
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 border border-white/10 text-stone-300 font-mono text-xs rounded-sm 
+           hover:bg-white/5 transition-all flex items-center gap-2;
+  }
+}
